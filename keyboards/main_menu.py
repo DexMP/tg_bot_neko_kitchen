@@ -9,7 +9,7 @@ def get_main_menu() -> ReplyKeyboardMarkup:
     kb.button(text="📋 Мои заказы", web_app=WebAppInfo(url="https://dexmp.ru"))
     kb.button(text="🎖 Отзывы", web_app=WebAppInfo(url="https://dexmp.ru"))
     kb.button(text="📍 Наши контакты", web_app=WebAppInfo(url="https://dexmp.ru"))
-    kb.button(text="📍 Наши контакты", web_app=WebAppInfo(url="https://dexmp.ru"))
+    kb.button(text="🥺 Рефералка", web_app=WebAppInfo(url="https://dexmp.ru"))
     kb.adjust(1)
     return kb.as_markup(resize_keyboard=True)
 
