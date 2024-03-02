@@ -6,15 +6,12 @@ from aiogram import F
 from aiogram.filters.command import Command
 from config_reader import config
 
-from handlers import questions
-
-# 1).DexMP  2). Василиса
-admins = [676094295, 658079279]
+from handlers import questions, admins
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=config.bot_token.get_secret_value())
 dp = Dispatcher()
-dp.include_routers(questions.router)
+dp.include_routers(questions.router, admins.router)
 dp["started_at"] = datetime.now().strftime("%H:%M %d.%m.%Y")
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)
