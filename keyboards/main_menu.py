@@ -3,14 +3,12 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 def get_main_menu() -> ReplyKeyboardMarkup:
     kb = InlineKeyboardBuilder()
-    kb.button(text="🍜  Меню", web_app=WebAppInfo(url="https://dexmp.ru"))
-    kb.button(text="🍽 Бронирование стола", web_app=WebAppInfo(url="https://dexmp.ru"))
-    kb.button(text="😊 Профиль", web_app=WebAppInfo(url="https://dexmp.ru"))
-    kb.button(text="📋 Мои заказы", web_app=WebAppInfo(url="https://dexmp.ru"))
-    kb.button(text="🎖 Отзывы", web_app=WebAppInfo(url="https://dexmp.ru"))
-    kb.button(text="📍 Наши контакты", web_app=WebAppInfo(url="https://dexmp.ru"))
-    kb.button(text="🥺 Рефералка", web_app=WebAppInfo(url="https://dexmp.ru"))
+    kb.button(text="🍜  Меню", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
+    kb.button(text="🍽 Бронирование стола", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
+    kb.button(text="😊 Профиль", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
+    kb.button(text="📋 Мои заказы", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
+    kb.button(text="🎖 Отзывы", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
+    kb.button(text="📍 Наши контакты", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
+    kb.button(text="🥺 Рефералка", switch_inline_query="https://t.me/Neko_kitchen_bot")
     kb.adjust(1)
     return kb.as_markup(resize_keyboard=True)
-
-# DeepLink @this_burger_bot https://t.me/this_burger_bot?start=74078

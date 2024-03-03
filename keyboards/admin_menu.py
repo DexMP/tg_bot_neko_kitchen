@@ -7,10 +7,10 @@ def get_admin_menu() -> ReplyKeyboardMarkup:
     kb.button(text="Отзывы")
     kb.button(text="Роли")
     kb.button(text="Отчёты")
-    kb.button(text="🎖 Отзывы")
+    kb.button(text="Отзывы")
     kb.button(text="Начислить бонусы")
     kb.button(text="Создать рассылку")
-    kb.adjust(1)
+    kb.adjust(2)
     return kb.as_markup(resize_keyboard=True)
 
 # DeepLink @this_burger_bot https://t.me/this_burger_bot?start=74078
