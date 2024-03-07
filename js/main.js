@@ -1,36 +1,29 @@
 let tg = window.Telegram.WebApp;
-let buy = document.getElementById("buy");
-let order = document.getElementById("order");
+let btn = document.getElementById("btn");
+let btnED = document.getElementById("btnED");
 tg.expand();
 
-buy.addEventListener("click", () => {
-    document.getElementById("main").style.display = "none";
-    document.getElementById("form").style.display = "block";
-    })
+btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+	if (tg.MainButton.isVisible){ //если кнопка показана 
+		tg.MainButton.hide() //скрываем кнопку 
+	}
+  else{ //иначе
+  	tg.MainButton.show(); //показываем 
+  }
+});
 
-order.addEventListener("click", () => {
-    document.getElementById("error").innerText = "";
-    let name = document.getElementById("user_name").value;
-    let phone = document.getElementById("user_phoone").value;
-    let adress = document.getElementById("user_adress").value;
-    if (name.lenght != 0) {
-        document.getElementById("error").innerText = "Имя не может быть пустым!";
-        return;
-    }
-    if (phone.lenght != 0) {
-        document.getElementById("error").innerText = "Телефон не может быть пустым!";
-        return;
-    }
-    if (adress.lenght != 0) {
-        document.getElementById("error").innerText = "Адрес не может быть пустым!";
-        return;
+btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+	if (tg.MainButton.isActive){ //если кнопка показана 
+		tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
+		tg.MainButton.disable() //скрываем кнопку 
+	}
+	else{ //иначе
+		tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
+		tg.MainButton.enable() //показываем 
+	}
+});
 
-    }
-    let data = {
-        name: name,
-        phone: phone,
-        adress: adress
-    }
-    tg.sendData(JSON.stringify(data));
-    tg.close();
-})
+Telegram.WebApp.onEvent('mainButtonClicked', function(){
+	tg.sendData("some string that we need to send"); 
+	//при клике на основную кнопку отправляем данные в строковом виде
+});
