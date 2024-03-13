@@ -1,26 +1,67 @@
+<!--
+    Simple static Telegram WebApp. Does not verify the WebAppInitData, as a bot token would be needed for that.
+-->
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-	<title>Магазин</title>
-</head>
-<body>
-    <body>
-        <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
-        </div>
-        <p>Just text</p> <!--Просто текст для проверки-->
-        <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
-        <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
-        <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
-        <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
-     </body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>python-telegram-bot Example WebApp</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+</head>
+<script type="text/javascript">
+    const colorPicker = new iro.ColorPicker('#picker', {
+        borderColor: "#ffffff",
+        borderWidth: 1,
+        width: Math.round(document.documentElement.clientWidth / 2),
+    });
+    colorPicker.on('color:change', function (color) {
+        document.body.style.background = color.hexString;
+    });
+
+    Telegram.WebApp.ready();
+    Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
+        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: colorPicker.color.rgb});
+        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.close();
+    });
+</script>
+<body>
+    
+    <!-- Карточка товара -->
+<div class="card">
+    <!-- Верхняя часть -->
+    <div class="card__top">
+      <!-- Изображение-ссылка товара -->
+      <a href="#" class="card__image">
+        <img
+          src="./image/iphone-14-pro-max-gold.png"
+          alt="Apple IPhone 14 PRO Max Gold"
+        />
+      </a>
+      <!-- Скидка на товар -->
+      <div class="card__label">-10%</div>
+    </div>
+    <!-- Нижняя часть -->
+    <div class="card__bottom">
+      <!-- Цены на товар (с учетом скидки и без)-->
+      <div class="card__prices">
+        <div class="card__price card__price--discount">135 000</div>
+        <div class="card__price card__price--common">150 000</div>
+      </div>
+      <!-- Ссылка-название товара -->
+      <a href="#" class="card__title">
+        Смартфон Apple IPhone 14 Pro Max 256Gb, золотой
+      </a>
+      <!-- Кнопка добавить в корзину -->
+      <button class="card__add">В корзину</button>
+    </div>
+  </div>
+
 </body>
+<script type="text/javascript">
+    Telegram.WebApp.expand();
+</script>
 </html>

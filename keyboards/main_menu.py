@@ -1,8 +1,8 @@
 from aiogram.types import ReplyKeyboardMarkup, WebAppInfo
-from aiogram.utils.keyboard import InlineKeyboardBuilder
+from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
 
 def get_main_menu() -> ReplyKeyboardMarkup:
-    kb = InlineKeyboardBuilder()
+    kb = ReplyKeyboardBuilder()
     kb.button(text="🍜  Меню", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
     kb.button(text="🍽 Бронирование стола", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
     kb.button(text="😊 Профиль", web_app=WebAppInfo(url="https://neko-kitchen.ru"))
