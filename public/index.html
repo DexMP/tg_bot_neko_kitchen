@@ -1,29 +1,22 @@
-<!--
-    Simple static Telegram WebApp. Does not verify the WebAppInitData, as a bot token would be needed for that.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>python-telegram-bot Example WebApp</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+  <meta name="viewport"
+	      content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="MobileOptimized" content="176"/>
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="robots" content="noindex, nofollow"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>python-telegram-bot Example WebApp</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <script type="text/javascript">
-    const colorPicker = new iro.ColorPicker('#picker', {
-        borderColor: "#ffffff",
-        borderWidth: 1,
-        width: Math.round(document.documentElement.clientWidth / 2),
-    });
-    colorPicker.on('color:change', function (color) {
-        document.body.style.background = color.hexString;
-    });
 
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
-        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: colorPicker.color.rgb});
+        const data = JSON.stringify({summ: 1000, shop_list: "Курица, Рыба"});
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     });
